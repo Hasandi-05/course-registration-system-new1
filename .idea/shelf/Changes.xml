@@ -1,0 +1,8 @@
+<changelist name="Changes" date="1740659138951" recycled="false">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Changes/shelved.patch" />
+  <option name="DESCRIPTION" value="Changes" />
+  <binary>
+    <option name="AFTER_PATH" value="course-registration-system-main/src/edu/ijse/layered/lib/mysql-connector-j-8.4.0.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Changes/mysql-connector-j-8.4.0.jar" />
+  </binary>
+</changelist>

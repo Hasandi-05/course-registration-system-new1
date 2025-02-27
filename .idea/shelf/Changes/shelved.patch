@@ -1,0 +1,1948 @@
+Index: IJSE MVC.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/IJSE MVC.iml b/IJSE MVC.iml
+new file mode 100644
+--- /dev/null	(date 1740548275218)
++++ b/IJSE MVC.iml	(date 1740548275218)
+@@ -0,0 +1,11 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4">
++  <component name="NewModuleRootManager" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$">
++      <sourceFolder url="file://$MODULE_DIR$/course-registration-system-main/src" isTestSource="false" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: course-registration-system-main/src/edu/ijse/layered/entity/StudentEntity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/course-registration-system-main/src/edu/ijse/layered/entity/StudentEntity.java b/course-registration-system-main/src/edu/ijse/layered/entity/StudentEntity.java
+new file mode 100644
+--- /dev/null	(date 1740647571099)
++++ b/course-registration-system-main/src/edu/ijse/layered/entity/StudentEntity.java	(date 1740647571099)
+@@ -0,0 +1,49 @@
++package edu.ijse.layered.entity;
++
++import javax.persistence.Entity;
++import javax.persistence.Id;
++import javax.persistence.Table;
++
++@Entity
++@Table(name = "students")
++public class Student {
++
++    @Id
++    private String id;
++    private String name;
++    private int age;
++    private String email;
++
++    // Getters and Setters
++    public String getId() {
++        return id;
++    }
++
++    public void setId(String id) {
++        this.id = id;
++    }
++
++    public String getName() {
++        return name;
++    }
++
++    public void setName(String name) {
++        this.name = name;
++    }
++
++    public int getAge() {
++        return age;
++    }
++
++    public void setAge(int age) {
++        this.age = age;
++    }
++
++    public String getEmail() {
++        return email;
++    }
++
++    public void setEmail(String email) {
++        this.email = email;
++    }
++}
+\ No newline at end of file
+Index: .gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.gitignore b/.gitignore
+new file mode 100644
+--- /dev/null	(date 1740658915303)
++++ b/.gitignore	(date 1740658915303)
+@@ -0,0 +1,2 @@
++# Project exclude paths
++/out/
+\ No newline at end of file
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+new file mode 100644
+--- /dev/null	(date 1740505610407)
++++ b/.idea/modules.xml	(date 1740505610407)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/IJSE MVC.iml" filepath="$PROJECT_DIR$/IJSE MVC.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: course-registration-system-main/src/edu/ijse/layered/view/CourseView.form
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/course-registration-system-main/src/edu/ijse/layered/view/CourseView.form b/course-registration-system-main/src/edu/ijse/layered/view/CourseView.form
+new file mode 100644
+--- /dev/null	(date 1740593745480)
++++ b/course-registration-system-main/src/edu/ijse/layered/view/CourseView.form	(date 1740593745480)
+@@ -0,0 +1,127 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="edu.ijse.layered.view.CourseView">
++  <grid id="27dc6" binding="contentPane" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="0" vgap="0">
++    <margin top="10" left="10" bottom="10" right="10" />
++    <constraints>
++      <xy x="20" y="20" width="800" height="600" />
++    </constraints>
++    <properties />
++    <border type="none" />
++    <children>
++      <grid id="6861f" layout-manager="GridLayoutManager" row-count="5" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="10" vgap="10">
++        <margin top="0" left="0" bottom="0" right="0" />
++        <constraints>
++          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false" />
++        </constraints>
++        <properties />
++        <border type="none" />
++        <children>
++          <component id="975d1" class="javax.swing.JLabel" binding="">
++            <constraints>
++              <grid row="0" column="0" row-span="1" col-span="1" hsize-policy="0" vsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false" />
++            </constraints>
++            <properties>
++              <text value="Course ID:" />
++            </properties>
++          </component>
++          <component id="026b8" class="javax.swing.JTextField" binding="txtCourseId">
++            <constraints>
++              <grid row="0" column="1" row-span="1" col-span="1" hsize-policy="3" vsize-policy="1" anchor="4" fill="1" indent="0" use-parent-layout="false" />
++            </constraints>
++            <properties />
++          </component>
++          <component id="93672" class="javax.swing.JLabel" binding="">
++            <constraints>
++              <grid row="1" column="0" row-span="1" col-span="1" hsize-policy="0" vsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false" />
++            </constraints>
++            <properties>
++              <text value="Course Name:" />
++            </properties>
++          </component>
++          <component id="47c2f" class="javax.swing.JTextField" binding="txtCourseName">
++            <constraints>
++              <grid row="1" column="1" row-span="1" col-span="1" hsize-policy="3" vsize-policy="1" anchor="4" fill="1" indent="0" use-parent-layout="false" />
++            </constraints>
++            <properties />
++          </component>
++          <component id="57c3b" class="javax.swing.JLabel" binding="">
++            <constraints>
++              <grid row="2" column="0" row-span="1" col-span="1" hsize-policy="0" vsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false" />
++            </constraints>
++            <properties>
++              <text value="Description:" />
++            </properties>
++          </component>
++          <component id="267d3" class="javax.swing.JTextField" binding="txtDescription">
++            <constraints>
++              <grid row="2" column="1" row-span="1" col-span="1" hsize-policy="3" vsize-policy="1" anchor="4" fill="1" indent="0" use-parent-layout="false" />
++            </constraints>
++            <properties />
++          </component>
++          <component id="83771" class="javax.swing.JLabel" binding="">
++            <constraints>
++              <grid row="3" column="0" row-span="1" col-span="1" hsize-policy="0" vsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false" />
++            </constraints>
++            <properties>
++              <text value="Duration:" />
++            </properties>
++          </component>
++          <component id="b20aa" class="javax.swing.JTextField" binding="txtDuration">
++            <constraints>
++              <grid row="3" column="1" row-span="1" col-span="1" hsize-policy="3" vsize-policy="1" anchor="4" fill="1" indent="0" use-parent-layout="false" />
++            </constraints>
++            <properties />
++          </component>
++        </children>
++      </grid>
++      <grid id="5763c" layout-manager="GridLayoutManager" row-count="1" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="20" vgap="0">
++        <margin top="0" left="0" bottom="0" right="0" />
++        <constraints>
++          <grid row="1" column="0" row-span="1" col-span="1" hsize-policy="3" vsize-policy="1" anchor="4" fill="1" indent="0" use-parent-layout="true" />
++        </constraints>
++        <properties />
++        <border type="none" />
++        <children>
++          <component id="35342" class="javax.swing.JButton" binding="btnAdd">
++            <constraints>
++              <grid row="0" column="0" row-span="1" col-span="1" hsize-policy="0" vsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false" />
++            </constraints>
++            <properties>
++              <text value="Add" />
++            </properties>
++          </component>
++          <component id="8460b" class="javax.swing.JButton" binding="btnUpdate">
++            <constraints>
++              <grid row="0" column="1" row-span="1" col-span="1" hsize-policy="0" vsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false" />
++            </constraints>
++            <properties>
++              <text value="Update" />
++            </properties>
++          </component>
++          <component id="9372c" class="javax.swing.JButton" binding="btnDelete">
++            <constraints>
++              <grid row="0" column="2" row-span="1" col-span="1" hsize-policy="0" vsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false" />
++            </constraints>
++            <properties>
++              <text value="Delete" />
++            </properties>
++          </component>
++          <component id="b970d" class="javax.swing.JButton" binding="btnSearch">
++            <constraints>
++              <grid row="0" column="3" row-span="1" col-span="1" hsize-policy="0" vsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false" />
++            </constraints>
++            <properties>
++              <text value="Search" />
++            </properties>
++          </component>
++        </children>
++      </grid>
++      <component id="bd467" class="javax.swing.JTable" binding="tableCourses">
++        <constraints>
++          <grid row="2" column="0" row-span="1" col-span="1" hsize-policy="3" vsize-policy="2" anchor="4" fill="3" indent="0" use-parent-layout="false" />
++        </constraints>
++        <properties />
++      </component>
++    </children>
++  </grid>
++</form>
+\ No newline at end of file
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+new file mode 100644
+--- /dev/null	(date 1740505610777)
++++ b/.idea/.gitignore	(date 1740505610777)
+@@ -0,0 +1,8 @@
++# Default ignored files
++/shelf/
++/workspace.xml
++# Editor-based HTTP Client requests
++/httpRequests/
++# Datasource local storage ignored files
++/dataSources/
++/dataSources.local.xml
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+new file mode 100644
+--- /dev/null	(date 1740505610523)
++++ b/.idea/misc.xml	(date 1740505610523)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_23" default="true" project-jdk-name="23" project-jdk-type="JavaSDK">
++    <output url="file://$PROJECT_DIR$/out" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/libraries/mysql_connector_j_8_4_0.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/mysql_connector_j_8_4_0.xml b/.idea/libraries/mysql_connector_j_8_4_0.xml
+new file mode 100644
+--- /dev/null	(date 1740505610518)
++++ b/.idea/libraries/mysql_connector_j_8_4_0.xml	(date 1740505610518)
+@@ -0,0 +1,9 @@
++<component name="libraryTable">
++  <library name="mysql-connector-j-8.4.0">
++    <CLASSES>
++      <root url="jar://$PROJECT_DIR$/cmjd-109-layered-main/src/edu/ijse/layered/lib/mysql-connector-j-8.4.0.jar!/" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES />
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/pom.xml b/.idea/pom.xml
+new file mode 100644
+--- /dev/null	(date 1740628690039)
++++ b/.idea/pom.xml	(date 1740628690039)
+@@ -0,0 +1,65 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
++    <modelVersion>4.0.0</modelVersion>
++    
++    <parent>
++        <groupId>org.springframework.boot</groupId>
++        <artifactId>spring-boot-starter-parent</artifactId>
++        <version>3.2.3</version>
++        <relativePath/>
++    </parent>
++    
++    <groupId>com.mycompany</groupId>
++    <artifactId>CRS</artifactId>
++    <version>1.0-SNAPSHOT</version>
++    <packaging>jar</packaging>
++    
++    <properties>
++        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
++        <maven.compiler.source>21</maven.compiler.source>
++        <maven.compiler.target>21</maven.compiler.target>
++        <exec.mainClass>com.university.crs.CRS</exec.mainClass>
++    </properties>
++    
++    <dependencies>
++        <dependency>
++            <groupId>org.springframework.boot</groupId>
++            <artifactId>spring-boot-starter-web</artifactId>
++        </dependency>
++        <dependency>
++            <groupId>org.springframework.boot</groupId>
++            <artifactId>spring-boot-starter-thymeleaf</artifactId>
++        </dependency>
++        <dependency>
++            <groupId>org.springframework.boot</groupId>
++            <artifactId>spring-boot-starter-data-jpa</artifactId>
++        </dependency>
++        <dependency>
++            <groupId>com.h2database</groupId>
++            <artifactId>h2</artifactId>
++            <scope>runtime</scope>
++        </dependency>
++        <dependency>
++            <groupId>org.springframework.boot</groupId>
++            <artifactId>spring-boot-starter-security</artifactId>
++        </dependency>
++        <dependency>
++            <groupId>org.springframework.boot</groupId>
++            <artifactId>spring-boot-starter-validation</artifactId>
++        </dependency>
++    </dependencies>
++    <dependency>
++        <groupId>jakarta.persistence</groupId>
++        <artifactId>jakarta.persistence-api</artifactId>
++        <version>3.1.0</version>
++    </dependency>
++
++    <build>
++        <plugins>
++            <plugin>
++                <groupId>org.springframework.boot</groupId>
++                <artifactId>spring-boot-maven-plugin</artifactId>
++            </plugin>
++        </plugins>
++    </build>
++</project>
+\ No newline at end of file
+Index: course-registration-system-main/src/edu/ijse/layered/view/StudentView.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/course-registration-system-main/src/edu/ijse/layered/view/StudentView.java b/course-registration-system-main/src/edu/ijse/layered/view/StudentView.java
+new file mode 100644
+--- /dev/null	(date 1740644735325)
++++ b/course-registration-system-main/src/edu/ijse/layered/view/StudentView.java	(date 1740644735325)
+@@ -0,0 +1,73 @@
++package edu.ijse.layered.view;
++
++import javax.swing.*;
++import javax.swing.table.DefaultTableModel;
++import java.awt.*;
++import java.awt.event.ActionEvent;
++import java.sql.*;
++
++public class StudentView extends JFrame {
++    private JTable tblStudents;
++    private DefaultTableModel tableModel;
++    private JTextField txtSearch;
++    private JButton btnSearch;
++
++    private static final String URL = "jdbc:mysql://localhost:3306/course_registration?useSSL=false&serverTimezone=UTC";
++    private static final String USER = "your_user";  // Replace with actual username
++    private static final String PASSWORD = "your_password"; // Replace with actual password
++
++    public StudentView() {
++        setTitle("Student Records");
++        setSize(700, 400);
++        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
++        setLocationRelativeTo(null);
++        setLayout(new BorderLayout());
++
++        JPanel panelSearch = new JPanel();
++        txtSearch = new JTextField(20);
++        btnSearch = new JButton("Search");
++        panelSearch.add(new JLabel("Search by Name or Email:"));
++        panelSearch.add(txtSearch);
++        panelSearch.add(btnSearch);
++        add(panelSearch, BorderLayout.NORTH);
++
++        String[] columnNames = {"ID", "Name", "Email", "Contact", "DOB"};
++        tableModel = new DefaultTableModel(columnNames, 0);
++        tblStudents = new JTable(tableModel);
++        JScrollPane scrollPane = new JScrollPane(tblStudents);
++        add(scrollPane, BorderLayout.CENTER);
++
++        fetchStudents("");
++        btnSearch.addActionListener(e -> fetchStudents(txtSearch.getText()));
++    }
++
++    private void fetchStudents(String searchQuery) {
++        tableModel.setRowCount(0);
++        String sql = "SELECT * FROM student WHERE name LIKE ? OR email LIKE ?";
++
++        try {
++            Class.forName("com.mysql.cj.jdbc.Driver");
++            try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
++                 PreparedStatement stmt = conn.prepareStatement(sql)) {
++                stmt.setString(1, "%" + searchQuery + "%");
++                stmt.setString(2, "%" + searchQuery + "%");
++                ResultSet rs = stmt.executeQuery();
++                while (rs.next()) {
++                    tableModel.addRow(new Object[]{
++                            rs.getInt("id"),
++                            rs.getString("name"),
++                            rs.getString("email"),
++                            rs.getString("contact"),
++                            rs.getString("dob")
++                    });
++                }
++            }
++        } catch (Exception e) {
++            JOptionPane.showMessageDialog(this, "Database error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
++        }
++    }
++
++    public static void main(String[] args) {
++        SwingUtilities.invokeLater(() -> new StudentView().setVisible(true));
++    }
++}
+Index: course-registration-system-main/src/edu/ijse/layered/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/course-registration-system-main/src/edu/ijse/layered/Main.java b/course-registration-system-main/src/edu/ijse/layered/Main.java
+new file mode 100644
+--- /dev/null	(date 1740552384353)
++++ b/course-registration-system-main/src/edu/ijse/layered/Main.java	(date 1740552384353)
+@@ -0,0 +1,17 @@
++/*
++ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
++ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
++ */
++package edu.ijse.layered;
++
++import edu.ijse.layered.view.CourseView;
++
++
++public class Main {
++
++
++    public static void main(String[] args) {
++        new CourseView().setVisible(true);
++    }
++    
++}
+Index: course-registration-system-main/src/edu/ijse/layered/service/custom/impl/StudentServiceImpl.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/course-registration-system-main/src/edu/ijse/layered/service/custom/impl/StudentServiceImpl.java b/course-registration-system-main/src/edu/ijse/layered/service/custom/impl/StudentServiceImpl.java
+new file mode 100644
+--- /dev/null	(date 1740647571081)
++++ b/course-registration-system-main/src/edu/ijse/layered/service/custom/impl/StudentServiceImpl.java	(date 1740647571081)
+@@ -0,0 +1,64 @@
++/*
++ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
++ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
++ */
++package edu.ijse.layered.service.custom.impl;
++
++import edu.ijse.layered.dao.custom.StudentDao;
++import edu.ijse.layered.dto.StudentDto;
++import edu.ijse.layered.entity.StudentEntity;
++import edu.ijse.layered.service.custom.StudentService;
++import java.util.ArrayList;
++
++/**
++ *
++ * @author anjan
++ */
++public class StudentServiceImpl implements StudentService {
++
++    private StudentDao itemDao = (StudentDao) DaoFactory.getInstance().getDao(DaoFactory.DaoTypes.ITEM);
++    
++    @Override
++    public String save(StudentDto itemDto) throws Exception {
++        StudentEntity entity = new StudentEntity(itemDto.getItemCode(),
++                itemDto.getDescription(), itemDto.getPackSize(),
++                itemDto.getUnitPrice(), itemDto.getQoh());
++        
++        return itemDao.save(entity) ? "Success" : "Fail";
++    }
++
++    @Override
++    public String update(StudentDto itemDto) throws Exception {
++        StudentEntity entity = new StudentEntity(itemDto.getItemCode(),
++                itemDto.getDescription(), itemDto.getPackSize(),
++                itemDto.getUnitPrice(), itemDto.getQoh());
++        
++        return itemDao.update(entity) ? "Success" : "Fail";
++    }
++
++    @Override
++    public String delete(String id) throws Exception {
++        return itemDao.delete(id) ? "Success" : "Fail";
++    }
++
++    @Override
++    public StudentDto search(String id) throws Exception {
++        StudentEntity entity = itemDao.search(id);
++        return new StudentDto(entity.getItemCode(),
++                entity.getDescription(), entity.getPackSize(),
++                entity.getUnitPrice(), entity.getQoh());
++    }
++
++    @Override
++    public ArrayList<StudentDto> getAll() throws Exception {
++        ArrayList<StudentDto> dtos = new ArrayList<>();
++        ArrayList<StudentEntity> itemEntities = itemDao.getAll();
++        for (StudentEntity entity : itemEntities) {
++            dtos.add(new StudentDto(entity.getItemCode(),
++                entity.getDescription(), entity.getPackSize(),
++                entity.getUnitPrice(), entity.getQoh()));
++        }
++        return dtos;
++    }
++
++}
+Index: course-registration-system-main/src/edu/ijse/layered/repository/CourseRepository.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/course-registration-system-main/src/edu/ijse/layered/repository/CourseRepository.java b/course-registration-system-main/src/edu/ijse/layered/repository/CourseRepository.java
+new file mode 100644
+--- /dev/null	(date 1740647571022)
++++ b/course-registration-system-main/src/edu/ijse/layered/repository/CourseRepository.java	(date 1740647571022)
+@@ -0,0 +1,10 @@
++package edu.ijse.layered.repository;
++
++import edu.ijse.layered.entity.Course;
++import org.springframework.data.jpa.repository.JpaRepository;
++import org.springframework.stereotype.Repository;
++
++@Repository
++public interface CourseRepository extends JpaRepository<Course, String> {
++    // All CRUD operations are automatically available here
++}
+\ No newline at end of file
+Index: course-registration-system-main/src/edu/ijse/layered/service/custom/impl/CourseServiceImpl.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/course-registration-system-main/src/edu/ijse/layered/service/custom/impl/CourseServiceImpl.java b/course-registration-system-main/src/edu/ijse/layered/service/custom/impl/CourseServiceImpl.java
+new file mode 100644
+--- /dev/null	(date 1740593745459)
++++ b/course-registration-system-main/src/edu/ijse/layered/service/custom/impl/CourseServiceImpl.java	(date 1740593745459)
+@@ -0,0 +1,99 @@
++package edu.ijse.layered.service.custom.impl;
++
++import edu.ijse.layered.dao.custom.CourseDao;
++import edu.ijse.layered.dao.custom.impl.CourseDaoImpl;
++import edu.ijse.layered.dto.CourseDto;
++import edu.ijse.layered.entity.Course;
++import edu.ijse.layered.service.custom.CourseService;
++import edu.ijse.layered.util.HibernateUtil;
++import org.hibernate.Session;
++import org.hibernate.Transaction;
++
++import java.util.ArrayList;
++import java.util.List;
++
++/**
++ * Implementation of CourseService for managing Course operations using CourseDao.
++ */
++public class CourseServiceImpl implements CourseService {
++    private final CourseDao courseDao = new CourseDaoImpl();
++
++    // Utility Methods for Conversion between Entity and DTO
++    private Course mapDtoToEntity(CourseDto dto) {
++        return new Course(dto.getCourseId(), dto.getCourseName(), dto.getDescription(), dto.getDuration());
++    }
++
++    private CourseDto mapEntityToDto(Course entity) {
++        return new CourseDto(entity.getCourseId(), entity.getCourseName(), entity.getDescription(), entity.getDuration());
++    }
++
++    @Override
++    public String addCourse(CourseDto courseDto) throws Exception {
++        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
++            Transaction transaction = session.beginTransaction();
++            String id = courseDao.add(mapDtoToEntity(courseDto), session);
++            transaction.commit();
++            return id;
++        }
++    }
++
++    @Override
++    public boolean updateCourse(CourseDto courseDto) throws Exception {
++        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
++            Transaction transaction = session.beginTransaction();
++            Course course = courseDao.findById(courseDto.getCourseId(), session);
++            if (course != null) {
++                courseDao.update(mapDtoToEntity(courseDto), session);
++                transaction.commit();
++                return true;
++            }
++            return false;
++        }
++    }
++
++    @Override
++    public boolean deleteCourse(String courseId) throws Exception {
++        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
++            Transaction transaction = session.beginTransaction();
++            Course course = courseDao.findById(courseId, session);
++            if (course != null) {
++                courseDao.delete(courseId, session);
++                transaction.commit();
++                return true;
++            }
++            return false;
++        }
++    }
++
++    @Override
++    public CourseDto getCourseById(String courseId) throws Exception {
++        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
++            Course course = courseDao.findById(courseId, session);
++            return course == null ? null : mapEntityToDto(course);
++        }
++    }
++
++    @Override
++    public List<CourseDto> getAllCourses() throws Exception {
++        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
++            List<Course> courses = courseDao.findAll(session);
++            List<CourseDto> dtos = new ArrayList<>();
++            for (Course course : courses) {
++                dtos.add(mapEntityToDto(course));
++            }
++            return dtos;
++        }
++    }
++
++    @Override
++    public List<CourseDto> searchCourses(String keyword) throws Exception {
++        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
++            List<Course> courses = courseDao.search(keyword, session);
++            List<CourseDto> dtos = new ArrayList<>();
++            for (Course course : courses) {
++                dtos.add(mapEntityToDto(course));
++            }
++            return dtos;
++        }
++    }
++}
+\ No newline at end of file
+Index: course-registration-system-main/src/edu/ijse/layered/exception/ResourceNotFoundException.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/course-registration-system-main/src/edu/ijse/layered/exception/ResourceNotFoundException.java b/course-registration-system-main/src/edu/ijse/layered/exception/ResourceNotFoundException.java
+new file mode 100644
+--- /dev/null	(date 1740646321023)
++++ b/course-registration-system-main/src/edu/ijse/layered/exception/ResourceNotFoundException.java	(date 1740646321023)
+@@ -0,0 +1,8 @@
++package edu.ijse.layered.exception;
++
++public class ResourceNotFoundException extends RuntimeException {
++
++    public ResourceNotFoundException(String message) {
++        super(message);
++    }
++}
+\ No newline at end of file
+Index: course-registration-system-main/src/edu/ijse/layered/dao/custom/CourseDao.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/course-registration-system-main/src/edu/ijse/layered/dao/custom/CourseDao.java b/course-registration-system-main/src/edu/ijse/layered/dao/custom/CourseDao.java
+new file mode 100644
+--- /dev/null	(date 1740649297307)
++++ b/course-registration-system-main/src/edu/ijse/layered/dao/custom/CourseDao.java	(date 1740649297307)
+@@ -0,0 +1,19 @@
++package edu.ijse.layered.dao;
++
++import edu.ijse.layered.entity.Course;
++
++import java.util.List;
++import java.util.Optional;
++
++public interface CourseDao {
++
++    Course saveCourse(Course course);
++
++    Optional<Course> getCourseById(String id);
++
++    List<Course> getAllCourses();
++
++    Course updateCourse(Course course);
++
++    void deleteCourse(String id);
++}
+\ No newline at end of file
+Index: course-registration-system-main/src/edu/ijse/layered/dto/StudentDto.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/course-registration-system-main/src/edu/ijse/layered/dto/StudentDto.java b/course-registration-system-main/src/edu/ijse/layered/dto/StudentDto.java
+new file mode 100644
+--- /dev/null	(date 1740647571046)
++++ b/course-registration-system-main/src/edu/ijse/layered/dto/StudentDto.java	(date 1740647571046)
+@@ -0,0 +1,42 @@
++package edu.ijse.layered.dto;
++
++public class StudentDTO {
++
++    private String id;
++    private String name;
++    private int age;
++    private String email;
++
++    // Getters and Setters
++    public String getId() {
++        return id;
++    }
++
++    public void setId(String id) {
++        this.id = id;
++    }
++
++    public String getName() {
++        return name;
++    }
++
++    public void setName(String name) {
++        this.name = name;
++    }
++
++    public int getAge() {
++        return age;
++    }
++
++    public void setAge(int age) {
++        this.age = age;
++    }
++
++    public String getEmail() {
++        return email;
++    }
++
++    public void setEmail(String email) {
++        this.email = email;
++    }
++}
+\ No newline at end of file
+Index: course-registration-system-main/src/edu/ijse/layered/exception/BadRequestException.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/course-registration-system-main/src/edu/ijse/layered/exception/BadRequestException.java b/course-registration-system-main/src/edu/ijse/layered/exception/BadRequestException.java
+new file mode 100644
+--- /dev/null	(date 1740646320966)
++++ b/course-registration-system-main/src/edu/ijse/layered/exception/BadRequestException.java	(date 1740646320966)
+@@ -0,0 +1,8 @@
++package edu.ijse.layered.exception;
++
++public class BadRequestException extends RuntimeException {
++
++  public BadRequestException(String message) {
++    super(message);
++  }
++}
+\ No newline at end of file
+Index: course-registration-system-main/src/edu/ijse/layered/dto/CourseDto.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/course-registration-system-main/src/edu/ijse/layered/dto/CourseDto.java b/course-registration-system-main/src/edu/ijse/layered/dto/CourseDto.java
+new file mode 100644
+--- /dev/null	(date 1740646320979)
++++ b/course-registration-system-main/src/edu/ijse/layered/dto/CourseDto.java	(date 1740646320979)
+@@ -0,0 +1,42 @@
++package edu.ijse.layered.dto;
++
++public class CourseDTO {
++
++    private String id;
++    private String courseName;
++    private int duration;
++    private double fee;
++
++    // Getters and Setters
++    public String getId() {
++        return id;
++    }
++
++    public void setId(String id) {
++        this.id = id;
++    }
++
++    public String getCourseName() {
++        return courseName;
++    }
++
++    public void setCourseName(String courseName) {
++        this.courseName = courseName;
++    }
++
++    public int getDuration() {
++        return duration;
++    }
++
++    public void setDuration(int duration) {
++        this.duration = duration;
++    }
++
++    public double getFee() {
++        return fee;
++    }
++
++    public void setFee(double fee) {
++        this.fee = fee;
++    }
++}
+\ No newline at end of file
+Index: course-registration-system-main/src/edu/ijse/layered/exception/GlobalExceptionHandler.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/course-registration-system-main/src/edu/ijse/layered/exception/GlobalExceptionHandler.java b/course-registration-system-main/src/edu/ijse/layered/exception/GlobalExceptionHandler.java
+new file mode 100644
+--- /dev/null	(date 1740646321007)
++++ b/course-registration-system-main/src/edu/ijse/layered/exception/GlobalExceptionHandler.java	(date 1740646321007)
+@@ -0,0 +1,37 @@
++package edu.ijse.layered.exception;
++
++import org.springframework.http.HttpStatus;
++import org.springframework.http.ResponseEntity;
++import org.springframework.web.bind.annotation.ExceptionHandler;
++import org.springframework.web.bind.annotation.RestControllerAdvice;
++
++import java.util.HashMap;
++import java.util.Map;
++
++@RestControllerAdvice
++public class GlobalExceptionHandler {
++
++  @ExceptionHandler(ResourceNotFoundException.class)
++  public ResponseEntity<Map<String, String>> handleResourceNotFoundException(ResourceNotFoundException ex) {
++    Map<String, String> response = new HashMap<>();
++    response.put("message", ex.getMessage());
++    response.put("status", HttpStatus.NOT_FOUND.toString());
++    return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
++  }
++
++  @ExceptionHandler(BadRequestException.class)
++  public ResponseEntity<Map<String, String>> handleBadRequestException(BadRequestException ex) {
++    Map<String, String> response = new HashMap<>();
++    response.put("message", ex.getMessage());
++    response.put("status", HttpStatus.BAD_REQUEST.toString());
++    return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
++  }
++
++  @ExceptionHandler(Exception.class)
++  public ResponseEntity<Map<String, String>> handleGenericException(Exception ex) {
++    Map<String, String> response = new HashMap<>();
++    response.put("message", "An unexpected error occurred: " + ex.getMessage());
++    response.put("status", HttpStatus.INTERNAL_SERVER_ERROR.toString());
++    return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
++  }
++}
+\ No newline at end of file
+Index: course-registration-system-main/src/edu/ijse/layered/service/custom/CourseService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/course-registration-system-main/src/edu/ijse/layered/service/custom/CourseService.java b/course-registration-system-main/src/edu/ijse/layered/service/custom/CourseService.java
+new file mode 100644
+--- /dev/null	(date 1740649297298)
++++ b/course-registration-system-main/src/edu/ijse/layered/service/custom/CourseService.java	(date 1740649297298)
+@@ -0,0 +1,36 @@
++package edu.ijse.layered.service;
++
++import edu.ijse.layered.dao.CourseDao;
++import edu.ijse.layered.entity.Course;
++import org.springframework.beans.factory.annotation.Autowired;
++import org.springframework.stereotype.Service;
++
++import java.util.List;
++import java.util.Optional;
++
++@Service
++public class CourseService {
++
++    @Autowired
++    private CourseDao courseDao;
++
++    public Course saveCourse(Course course) {
++        return courseDao.saveCourse(course);
++    }
++
++    public Optional<Course> getCourseById(String id) {
++        return courseDao.getCourseById(id);
++    }
++
++    public List<Course> getAllCourses() {
++        return courseDao.getAllCourses();
++    }
++
++    public Course updateCourse(Course course) {
++        return courseDao.updateCourse(course);
++    }
++
++    public void deleteCourse(String id) {
++        courseDao.deleteCourse(id);
++    }
++}
+\ No newline at end of file
+Index: course-registration-system-main/src/edu/ijse/layered/dao/custom/StudentDao.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/course-registration-system-main/src/edu/ijse/layered/dao/custom/StudentDao.java b/course-registration-system-main/src/edu/ijse/layered/dao/custom/StudentDao.java
+new file mode 100644
+--- /dev/null	(date 1740649297282)
++++ b/course-registration-system-main/src/edu/ijse/layered/dao/custom/StudentDao.java	(date 1740649297282)
+@@ -0,0 +1,19 @@
++package edu.ijse.layered.dao;
++
++import edu.ijse.layered.entity.Student;
++
++import java.util.List;
++import java.util.Optional;
++
++public interface StudentDao {
++
++    Student saveStudent(Student student);
++
++    Optional<Student> getStudentById(String id);
++
++    List<Student> getAllStudents();
++
++    Student updateStudent(Student student);
++
++    void deleteStudent(String id);
++}
+\ No newline at end of file
+Index: course-registration-system-main/src/edu/ijse/layered/repository/StudentRepository.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/course-registration-system-main/src/edu/ijse/layered/repository/StudentRepository.java b/course-registration-system-main/src/edu/ijse/layered/repository/StudentRepository.java
+new file mode 100644
+--- /dev/null	(date 1740647571107)
++++ b/course-registration-system-main/src/edu/ijse/layered/repository/StudentRepository.java	(date 1740647571107)
+@@ -0,0 +1,10 @@
++package edu.ijse.layered.repository;
++
++import edu.ijse.layered.entity.Student;
++import org.springframework.data.jpa.repository.JpaRepository;
++import org.springframework.stereotype.Repository;
++
++@Repository
++public interface StudentRepository extends JpaRepository<Student, String> {
++    // All CRUD operations are automatically available here
++}
+\ No newline at end of file
+Index: course-registration-system-main/src/edu/ijse/layered/entity/CourseEntity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/course-registration-system-main/src/edu/ijse/layered/entity/CourseEntity.java b/course-registration-system-main/src/edu/ijse/layered/entity/CourseEntity.java
+new file mode 100644
+--- /dev/null	(date 1740646320993)
++++ b/course-registration-system-main/src/edu/ijse/layered/entity/CourseEntity.java	(date 1740646320993)
+@@ -0,0 +1,49 @@
++package edu.ijse.layered.entity;
++
++import javax.persistence.Entity;
++import javax.persistence.Id;
++import javax.persistence.Table;
++
++@Entity
++@Table(name = "courses")
++public class Course {
++
++    @Id
++    private String id;
++    private String courseName;
++    private int duration; // Duration in months or weeks
++    private double fee;   // Course fee
++
++    // Getters and Setters
++    public String getId() {
++        return id;
++    }
++
++    public void setId(String id) {
++        this.id = id;
++    }
++
++    public String getCourseName() {
++        return courseName;
++    }
++
++    public void setCourseName(String courseName) {
++        this.courseName = courseName;
++    }
++
++    public int getDuration() {
++        return duration;
++    }
++
++    public void setDuration(int duration) {
++        this.duration = duration;
++    }
++
++    public double getFee() {
++        return fee;
++    }
++
++    public void setFee(double fee) {
++        this.fee = fee;
++    }
++}
+\ No newline at end of file
+Index: course-registration-system-main/src/edu/ijse/layered/dao/custom/impl/CourseDaoImpl.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/course-registration-system-main/src/edu/ijse/layered/dao/custom/impl/CourseDaoImpl.java b/course-registration-system-main/src/edu/ijse/layered/dao/custom/impl/CourseDaoImpl.java
+new file mode 100644
+--- /dev/null	(date 1740649297291)
++++ b/course-registration-system-main/src/edu/ijse/layered/dao/custom/impl/CourseDaoImpl.java	(date 1740649297291)
+@@ -0,0 +1,57 @@
++/*
++ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
++ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
++ */
++package edu.ijse.layered.dao.custom.impl;
++
++package edu.ijse.layered.dao.impl;
++
++import edu.ijse.layered.dao.CourseDao;
++import edu.ijse.layered.entity.Course;
++import org.springframework.stereotype.Repository;
++
++import javax.persistence.EntityManager;
++import javax.persistence.PersistenceContext;
++import javax.transaction.Transactional;
++import java.util.List;
++import java.util.Optional;
++
++@Repository
++public class CourseDaoImpl implements CourseDao {
++
++    @PersistenceContext
++    private EntityManager entityManager;
++
++    @Override
++    @Transactional
++    public Course saveCourse(Course course) {
++        entityManager.persist(course);
++        return course;
++    }
++
++    @Override
++    public Optional<Course> getCourseById(String id) {
++        Course course = entityManager.find(Course.class, id);
++        return Optional.ofNullable(course);
++    }
++
++    @Override
++    public List<Course> getAllCourses() {
++        return entityManager.createQuery("SELECT c FROM Course c", Course.class).getResultList();
++    }
++
++    @Override
++    @Transactional
++    public Course updateCourse(Course course) {
++        return entityManager.merge(course);
++    }
++
++    @Override
++    @Transactional
++    public void deleteCourse(String id) {
++        Course course = entityManager.find(Course.class, id);
++        if (course != null) {
++            entityManager.remove(course);
++        }
++    }
++}
+\ No newline at end of file
+Index: course-registration-system-main/src/edu/ijse/layered/util/HibernateUtil.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/course-registration-system-main/src/edu/ijse/layered/util/HibernateUtil.java b/course-registration-system-main/src/edu/ijse/layered/util/HibernateUtil.java
+new file mode 100644
+--- /dev/null	(date 1740593745456)
++++ b/course-registration-system-main/src/edu/ijse/layered/util/HibernateUtil.java	(date 1740593745456)
+@@ -0,0 +1,26 @@
++package edu.ijse.layered.util;
++
++import org.hibernate.SessionFactory;
++import org.hibernate.cfg.Configuration;
++
++/**
++ * Utility class for Hibernate SessionFactory.
++ */
++public class HibernateUtil {
++    private static final SessionFactory sessionFactory;
++
++    static {
++        try {
++            sessionFactory = new Configuration()
++                    .configure("hibernate.cfg.xml")
++                    .addAnnotatedClass(edu.ijse.layered.entity.Course.class)
++                    .buildSessionFactory();
++        } catch (Throwable ex) {
++            throw new ExceptionInInitializerError(ex);
++        }
++    }
++
++    public static SessionFactory getSessionFactory() {
++        return sessionFactory;
++    }
++}
+\ No newline at end of file
+Index: course-registration-system-main/src/edu/ijse/layered/dao/custom/impl/StudentDaoImpl.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/course-registration-system-main/src/edu/ijse/layered/dao/custom/impl/StudentDaoImpl.java b/course-registration-system-main/src/edu/ijse/layered/dao/custom/impl/StudentDaoImpl.java
+new file mode 100644
+--- /dev/null	(date 1740649297271)
++++ b/course-registration-system-main/src/edu/ijse/layered/dao/custom/impl/StudentDaoImpl.java	(date 1740649297271)
+@@ -0,0 +1,51 @@
++package edu.ijse.layered.dao.impl;
++
++import edu.ijse.layered.dao.StudentDao;
++import edu.ijse.layered.entity.Student;
++import org.springframework.stereotype.Repository;
++
++import javax.persistence.EntityManager;
++import javax.persistence.PersistenceContext;
++import javax.transaction.Transactional;
++import java.util.List;
++import java.util.Optional;
++
++@Repository
++public class StudentDaoImpl implements StudentDao {
++
++    @PersistenceContext
++    private EntityManager entityManager;
++
++    @Override
++    @Transactional
++    public Student saveStudent(Student student) {
++        entityManager.persist(student);
++        return student;
++    }
++
++    @Override
++    public Optional<Student> getStudentById(String id) {
++        Student student = entityManager.find(Student.class, id);
++        return Optional.ofNullable(student);
++    }
++
++    @Override
++    public List<Student> getAllStudents() {
++        return entityManager.createQuery("SELECT s FROM Student s", Student.class).getResultList();
++    }
++
++    @Override
++    @Transactional
++    public Student updateStudent(Student student) {
++        return entityManager.merge(student);
++    }
++
++    @Override
++    @Transactional
++    public void deleteStudent(String id) {
++        Student student = entityManager.find(Student.class, id);
++        if (student != null) {
++            entityManager.remove(student);
++        }
++    }
++}
+\ No newline at end of file
+Index: course-registration-system-main/src/edu/ijse/layered/view/StudentView.form
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/course-registration-system-main/src/edu/ijse/layered/view/StudentView.form b/course-registration-system-main/src/edu/ijse/layered/view/StudentView.form
+new file mode 100644
+--- /dev/null	(date 1740580986282)
++++ b/course-registration-system-main/src/edu/ijse/layered/view/StudentView.form	(date 1740580986282)
+@@ -0,0 +1,227 @@
++import javax.swing.*;
++import javax.swing.table.DefaultTableModel;
++import java.awt.*;
++import java.awt.event.ActionEvent;
++import java.awt.event.ActionListener;
++import java.sql.*;
++
++public class StudentViewForm extends JFrame {
++    private JTextField txtStudentId, txtStudentName, txtEmail, txtContact, txtDob;
++    private JButton btnSave, btnUpdate, btnDelete;
++    private JTable tblStudents;
++    private DefaultTableModel tableModel;
++
++    // Database Credentials
++    private static final String URL = "jdbc:mysql://localhost:3306/course_registration";
++    private static final String USER = "root";  // Change as needed
++    private static final String PASSWORD = "hasandi05H_"; // Change as needed
++
++    public StudentViewForm() {
++        setTitle("Student Registration Form");
++        setSize(700, 450);
++        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
++        setLocationRelativeTo(null);
++        setLayout(new BorderLayout());
++
++        // **Header Label**
++        JLabel lblHeader = new JLabel("Student Registration", SwingConstants.CENTER);
++        lblHeader.setFont(new Font("Segoe UI", Font.BOLD, 24));
++        add(lblHeader, BorderLayout.NORTH);
++
++        // **Form Panel**
++        JPanel panelForm = new JPanel(new GridLayout(5, 2, 10, 10));
++        panelForm.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
++
++        panelForm.add(new JLabel("Student ID:"));
++        txtStudentId = new JTextField();
++        panelForm.add(txtStudentId);
++
++        panelForm.add(new JLabel("Name:"));
++        txtStudentName = new JTextField();
++        panelForm.add(txtStudentName);
++
++        panelForm.add(new JLabel("Email:"));
++        txtEmail = new JTextField();
++        panelForm.add(txtEmail);
++
++        panelForm.add(new JLabel("Contact No:"));
++        txtContact = new JTextField();
++        panelForm.add(txtContact);
++
++        panelForm.add(new JLabel("Date of Birth:"));
++        txtDob = new JTextField();
++        panelForm.add(txtDob);
++
++        add(panelForm, BorderLayout.CENTER);
++
++        // **Buttons Panel**
++        JPanel panelButtons = new JPanel();
++        btnSave = new JButton("Save");
++        btnUpdate = new JButton("Update");
++        btnDelete = new JButton("Delete");
++
++        panelButtons.add(btnSave);
++        panelButtons.add(btnUpdate);
++        panelButtons.add(btnDelete);
++        add(panelButtons, BorderLayout.SOUTH);
++
++        // **Table Panel**
++        String[] columnNames = {"Student ID", "Name", "Email", "Contact No", "DOB"};
++        tableModel = new DefaultTableModel(columnNames, 0);
++        tblStudents = new JTable(tableModel);
++        JScrollPane scrollPane = new JScrollPane(tblStudents);
++        add(scrollPane, BorderLayout.EAST);
++
++        // **Fetch Students on Load**
++        fetchStudents();
++
++        // **Button Actions**
++        btnSave.addActionListener(new ActionListener() {
++            @Override
++            public void actionPerformed(ActionEvent e) {
++                addStudent();
++            }
++        });
++
++        btnUpdate.addActionListener(new ActionListener() {
++            @Override
++            public void actionPerformed(ActionEvent e) {
++                updateStudent();
++            }
++        });
++
++        btnDelete.addActionListener(new ActionListener() {
++            @Override
++            public void actionPerformed(ActionEvent e) {
++                deleteStudent();
++            }
++        });
++    }
++
++    // **Fetch Students from Database**
++    private void fetchStudents() {
++        tableModel.setRowCount(0);  // Clear existing rows
++
++        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
++             Statement stmt = conn.createStatement();
++             ResultSet rs = stmt.executeQuery("SELECT * FROM student")) {
++
++            while (rs.next()) {
++                int id = rs.getInt("id");
++                String name = rs.getString("name");
++                String email = rs.getString("email");
++                String contact = rs.getString("contact");
++                String dob = rs.getString("dob");
++
++                tableModel.addRow(new Object[]{id, name, email, contact, dob});
++            }
++        } catch (SQLException e) {
++            e.printStackTrace();
++            JOptionPane.showMessageDialog(this, "Error loading students from database!", "Error", JOptionPane.ERROR_MESSAGE);
++        }
++    }
++
++    // **Add Student to Database**
++    private void addStudent() {
++        String studentId = txtStudentId.getText();
++        String name = txtStudentName.getText();
++        String email = txtEmail.getText();
++        String contact = txtContact.getText();
++        String dob = txtDob.getText();
++
++        if (!studentId.isEmpty() && !name.isEmpty()) {
++            try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
++                 PreparedStatement stmt = conn.prepareStatement("INSERT INTO student (id, name, email, contact, dob) VALUES (?, ?, ?, ?, ?)")) {
++
++                stmt.setInt(1, Integer.parseInt(studentId));
++                stmt.setString(2, name);
++                stmt.setString(3, email);
++                stmt.setString(4, contact);
++                stmt.setString(5, dob);
++
++                int rowsInserted = stmt.executeUpdate();
++                if (rowsInserted > 0) {
++                    JOptionPane.showMessageDialog(this, "Student added successfully!");
++                    fetchStudents();
++                    clearFields();
++                }
++
++            } catch (SQLException e) {
++                e.printStackTrace();
++                JOptionPane.showMessageDialog(this, "Error adding student!", "Error", JOptionPane.ERROR_MESSAGE);
++            }
++        } else {
++            JOptionPane.showMessageDialog(this, "Student ID and Name are required!", "Warning", JOptionPane.WARNING_MESSAGE);
++        }
++    }
++
++    // **Update Selected Student**
++    private void updateStudent() {
++        int selectedRow = tblStudents.getSelectedRow();
++        if (selectedRow != -1) {
++            try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
++                 PreparedStatement stmt = conn.prepareStatement("UPDATE student SET name=?, email=?, contact=?, dob=? WHERE id=?")) {
++
++                stmt.setString(1, txtStudentName.getText());
++                stmt.setString(2, txtEmail.getText());
++                stmt.setString(3, txtContact.getText());
++                stmt.setString(4, txtDob.getText());
++                stmt.setInt(5, Integer.parseInt(txtStudentId.getText()));
++
++                int rowsUpdated = stmt.executeUpdate();
++                if (rowsUpdated > 0) {
++                    JOptionPane.showMessageDialog(this, "Student updated successfully!");
++                    fetchStudents();
++                    clearFields();
++                }
++
++            } catch (SQLException e) {
++                e.printStackTrace();
++                JOptionPane.showMessageDialog(this, "Error updating student!", "Error", JOptionPane.ERROR_MESSAGE);
++            }
++        } else {
++            JOptionPane.showMessageDialog(this, "Please select a student to update!", "Warning", JOptionPane.WARNING_MESSAGE);
++        }
++    }
++
++    // **Delete Selected Student**
++    private void deleteStudent() {
++        int selectedRow = tblStudents.getSelectedRow();
++        if (selectedRow != -1) {
++            int confirm = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete this student?", "Confirm", JOptionPane.YES_NO_OPTION);
++            if (confirm == JOptionPane.YES_OPTION) {
++                try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
++                     PreparedStatement stmt = conn.prepareStatement("DELETE FROM student WHERE id=?")) {
++
++                    stmt.setInt(1, Integer.parseInt(txtStudentId.getText()));
++                    int rowsDeleted = stmt.executeUpdate();
++                    if (rowsDeleted > 0) {
++                        JOptionPane.showMessageDialog(this, "Student deleted successfully!");
++                        fetchStudents();
++                        clearFields();
++                    }
++
++                } catch (SQLException e) {
++                    e.printStackTrace();
++                    JOptionPane.showMessageDialog(this, "Error deleting student!", "Error", JOptionPane.ERROR_MESSAGE);
++                }
++            }
++        } else {
++            JOptionPane.showMessageDialog(this, "Please select a student to delete!", "Warning", JOptionPane.WARNING_MESSAGE);
++        }
++    }
++
++    // **Clear Input Fields**
++    private void clearFields() {
++        txtStudentId.setText("");
++        txtStudentName.setText("");
++        txtEmail.setText("");
++        txtContact.setText("");
++        txtDob.setText("");
++    }
++
++    // **Main Method to Run the Form**
++    public static void main(String[] args) {
++        SwingUtilities.invokeLater(() -> new StudentViewForm().setVisible(true));
++    }
++}
+Index: course-registration-system-main/src/edu/ijse/layered/service/custom/StudentService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/course-registration-system-main/src/edu/ijse/layered/service/custom/StudentService.java b/course-registration-system-main/src/edu/ijse/layered/service/custom/StudentService.java
+new file mode 100644
+--- /dev/null	(date 1740647570988)
++++ b/course-registration-system-main/src/edu/ijse/layered/service/custom/StudentService.java	(date 1740647570988)
+@@ -0,0 +1,77 @@
++package edu.ijse.layered.service;
++
++import edu.ijse.layered.dto.StudentDTO;
++import edu.ijse.layered.entity.Student;
++import edu.ijse.layered.exception.ResourceNotFoundException;
++import edu.ijse.layered.repository.StudentRepository;
++import org.springframework.beans.factory.annotation.Autowired;
++import org.springframework.stereotype.Service;
++
++import java.util.List;
++import java.util.stream.Collectors;
++
++@Service
++public class StudentService {
++
++    @Autowired
++    private StudentRepository studentRepository;
++
++    // Convert Entity to DTO
++    private StudentDTO mapToDTO(Student student) {
++        StudentDTO dto = new StudentDTO();
++        dto.setId(student.getId());
++        dto.setName(student.getName());
++        dto.setAge(student.getAge());
++        dto.setEmail(student.getEmail());
++        return dto;
++    }
++
++    // Convert DTO to Entity
++    private Student mapToEntity(StudentDTO dto) {
++        Student student = new Student();
++        student.setId(dto.getId());
++        student.setName(dto.getName());
++        student.setAge(dto.getAge());
++        student.setEmail(dto.getEmail());
++        return student;
++    }
++
++    // Save a new Student
++    public StudentDTO saveStudent(StudentDTO studentDTO) {
++        Student student = mapToEntity(studentDTO);
++        return mapToDTO(studentRepository.save(student));
++    }
++
++    // Get all Students
++    public List<StudentDTO> getAllStudents() {
++        return studentRepository.findAll().stream()
++                .map(this::mapToDTO)
++                .collect(Collectors.toList());
++    }
++
++    // Get a Student by ID
++    public StudentDTO getStudentById(String id) {
++        Student student = studentRepository.findById(id)
++                .orElseThrow(() -> new ResourceNotFoundException("Student not found with ID: " + id));
++        return mapToDTO(student);
++    }
++
++    // Update an existing Student
++    public StudentDTO updateStudent(String id, StudentDTO studentDTO) {
++        Student existingStudent = studentRepository.findById(id)
++                .orElseThrow(() -> new ResourceNotFoundException("Student not found with ID: " + id));
++
++        existingStudent.setName(studentDTO.getName());
++        existingStudent.setAge(studentDTO.getAge());
++        existingStudent.setEmail(studentDTO.getEmail());
++
++        return mapToDTO(studentRepository.save(existingStudent));
++    }
++
++    // Delete a Student by ID
++    public void deleteStudentById(String id) {
++        Student existingStudent = studentRepository.findById(id)
++                .orElseThrow(() -> new ResourceNotFoundException("Student not found with ID: " + id));
++        studentRepository.delete(existingStudent);
++    }
++}
+\ No newline at end of file
+Index: course-registration-system-main/src/edu/ijse/layered/view/CourseView.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/course-registration-system-main/src/edu/ijse/layered/view/CourseView.java b/course-registration-system-main/src/edu/ijse/layered/view/CourseView.java
+new file mode 100644
+--- /dev/null	(date 1740644735314)
++++ b/course-registration-system-main/src/edu/ijse/layered/view/CourseView.java	(date 1740644735314)
+@@ -0,0 +1,123 @@
++package edu.ijse.layered.view;
++
++import edu.ijse.layered.dto.CourseDto;
++import edu.ijse.layered.service.custom.CourseService;
++import edu.ijse.layered.service.custom.impl.CourseServiceImpl;
++
++import javax.swing.*;
++import javax.swing.table.DefaultTableModel;
++import java.awt.*;
++import java.awt.event.ActionEvent;
++import java.awt.event.ActionListener;
++import java.util.List;
++
++public class CourseView extends JFrame {
++    private final CourseService courseService = new CourseServiceImpl();
++    private JTextField txtCourseId, txtCourseName, txtDescription, txtDuration;
++    private JTable tableCourses;
++    private DefaultTableModel tableModel;
++
++    public CourseView() {
++        setTitle("Course Management");
++        setSize(800, 600);
++        setDefaultCloseOperation(EXIT_ON_CLOSE);
++        setLocationRelativeTo(null);
++
++        initUI();
++        loadDataToTable();
++    }
++
++    private void initUI() {
++        setLayout(new BorderLayout());
++        JPanel panelForm = new JPanel(new GridLayout(5, 2, 10, 10));
++        panelForm.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
++
++        panelForm.add(new JLabel("Course ID:"));
++        txtCourseId = new JTextField();
++        panelForm.add(txtCourseId);
++
++        panelForm.add(new JLabel("Course Name:"));
++        txtCourseName = new JTextField();
++        panelForm.add(txtCourseName);
++
++        panelForm.add(new JLabel("Description:"));
++        txtDescription = new JTextField();
++        panelForm.add(txtDescription);
++
++        panelForm.add(new JLabel("Duration (in days):"));
++        txtDuration = new JTextField();
++        panelForm.add(txtDuration);
++
++        JPanel panelButtons = new JPanel(new FlowLayout());
++        JButton btnAdd = new JButton("Add");
++        btnAdd.addActionListener(new AddCourseActionListener());
++        panelButtons.add(btnAdd);
++
++        JButton btnUpdate = new JButton("Update");
++        btnUpdate.addActionListener(new UpdateCourseActionListener());
++        panelButtons.add(btnUpdate);
++
++        JButton btnDelete = new JButton("Delete");
++        btnDelete.addActionListener(new DeleteCourseActionListener());
++        panelButtons.add(btnDelete);
++
++        JButton btnSearch = new JButton("Search");
++        btnSearch.addActionListener(new SearchCourseActionListener());
++        panelButtons.add(btnSearch);
++
++        tableModel = new DefaultTableModel(new String[]{"Course ID", "Course Name", "Description", "Duration"}, 0);
++        tableCourses = new JTable(tableModel);
++        JScrollPane scrollPane = new JScrollPane(tableCourses);
++
++        add(panelForm, BorderLayout.NORTH);
++        add(panelButtons, BorderLayout.CENTER);
++        add(scrollPane, BorderLayout.SOUTH);
++    }
++
++    private void loadDataToTable() {
++        try {
++            List<CourseDto> courses = courseService.getAllCourses();
++            tableModel.setRowCount(0);
++            for (CourseDto course : courses) {
++                tableModel.addRow(new Object[]{
++                        course.getCourseId(),
++                        course.getCourseName(),
++                        course.getDescription(),
++                        course.getDuration()
++                });
++            }
++        } catch (Exception ex) {
++            JOptionPane.showMessageDialog(this, "Failed to load course data.", "Error", JOptionPane.ERROR_MESSAGE);
++        }
++    }
++
++    private class AddCourseActionListener implements ActionListener {
++        public void actionPerformed(ActionEvent e) {
++            try {
++                String courseId = txtCourseId.getText().trim();
++                String courseName = txtCourseName.getText().trim();
++                String description = txtDescription.getText().trim();
++                String durationText = txtDuration.getText().trim();
++
++                if (courseId.isEmpty() || courseName.isEmpty() || description.isEmpty() || durationText.isEmpty()) {
++                    JOptionPane.showMessageDialog(CourseView.this, "All fields must be filled out.", "Error", JOptionPane.ERROR_MESSAGE);
++                    return;
++                }
++
++                int duration = Integer.parseInt(durationText);
++                CourseDto course = new CourseDto(courseId, courseName, description, duration);
++                courseService.addCourse(course);
++                JOptionPane.showMessageDialog(CourseView.this, "Course added successfully!");
++                loadDataToTable();
++            } catch (NumberFormatException ex) {
++                JOptionPane.showMessageDialog(CourseView.this, "Invalid duration format. Please enter a number.", "Error", JOptionPane.ERROR_MESSAGE);
++            } catch (Exception ex) {
++                JOptionPane.showMessageDialog(CourseView.this, "Error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
++            }
++        }
++    }
++
++    public static void main(String[] args) {
++        SwingUtilities.invokeLater(() -> new CourseView().setVisible(true));
++    }
++}
+Index: course-registration-system-main/src/edu/ijse/layered/controller/CourseController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/course-registration-system-main/src/edu/ijse/layered/controller/CourseController.java b/course-registration-system-main/src/edu/ijse/layered/controller/CourseController.java
+new file mode 100644
+--- /dev/null	(date 1740646320986)
++++ b/course-registration-system-main/src/edu/ijse/layered/controller/CourseController.java	(date 1740646320986)
+@@ -0,0 +1,53 @@
++package edu.ijse.layered.controller;
++
++import edu.ijse.layered.dto.CourseDTO;
++import edu.ijse.layered.service.CourseService;
++import org.springframework.beans.factory.annotation.Autowired;
++import org.springframework.http.HttpStatus;
++import org.springframework.http.ResponseEntity;
++import org.springframework.web.bind.annotation.*;
++
++import java.util.List;
++
++@RestController
++@RequestMapping("/api/courses")
++public class CourseController {
++
++    @Autowired
++    private CourseService courseService;
++
++    // Create a new course
++    @PostMapping
++    public ResponseEntity<CourseDTO> createCourse(@RequestBody CourseDTO courseDTO) {
++        CourseDTO createdCourse = courseService.saveCourse(courseDTO);
++        return new ResponseEntity<>(createdCourse, HttpStatus.CREATED);
++    }
++
++    // Retrieve all courses
++    @GetMapping
++    public ResponseEntity<List<CourseDTO>> getAllCourses() {
++        List<CourseDTO> courses = courseService.getAllCourses();
++        return new ResponseEntity<>(courses, HttpStatus.OK);
++    }
++
++    // Retrieve a course by ID
++    @GetMapping("/{id}")
++    public ResponseEntity<CourseDTO> getCourseById(@PathVariable String id) {
++        CourseDTO course = courseService.getCourseById(id);
++        return new ResponseEntity<>(course, HttpStatus.OK);
++    }
++
++    // Update an existing course
++    @PutMapping("/{id}")
++    public ResponseEntity<CourseDTO> updateCourse(@PathVariable String id, @RequestBody CourseDTO courseDTO) {
++        CourseDTO updatedCourse = courseService.updateCourse(id, courseDTO);
++        return new ResponseEntity<>(updatedCourse, HttpStatus.OK);
++    }
++
++    // Delete a course by ID
++    @DeleteMapping("/{id}")
++    public ResponseEntity<Void> deleteCourse(@PathVariable String id) {
++        courseService.deleteCourseById(id);
++        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
++    }
++}
+\ No newline at end of file
+Index: course-registration-system-main/src/edu/ijse/layered/dao/CrudDao.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/course-registration-system-main/src/edu/ijse/layered/dao/CrudDao.java b/course-registration-system-main/src/edu/ijse/layered/dao/CrudDao.java
+new file mode 100644
+--- /dev/null	(date 1740505289494)
++++ b/course-registration-system-main/src/edu/ijse/layered/dao/CrudDao.java	(date 1740505289494)
+@@ -0,0 +1,19 @@
++/*
++ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
++ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
++ */
++package edu.ijse.layered.dao;
++
++import java.util.ArrayList;
++
++/**
++ *
++ * @author anjan
++ */
++public interface CrudDao<T, ID> extends SuperDao{
++    boolean save(T t) throws Exception;
++    boolean update(T t) throws Exception;
++    boolean delete(ID id) throws Exception;
++    T search(ID id) throws Exception;
++    ArrayList<T> getAll() throws Exception;
++}
+Index: course-registration-system-main/src/edu/ijse/layered/dao/CrudUtil.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/course-registration-system-main/src/edu/ijse/layered/dao/CrudUtil.java b/course-registration-system-main/src/edu/ijse/layered/dao/CrudUtil.java
+new file mode 100644
+--- /dev/null	(date 1740505289574)
++++ b/course-registration-system-main/src/edu/ijse/layered/dao/CrudUtil.java	(date 1740505289574)
+@@ -0,0 +1,34 @@
++/*
++ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
++ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
++ */
++package edu.ijse.layered.dao;
++
++import edu.ijse.layered.db.DBConnection;
++import java.sql.PreparedStatement;
++import java.sql.Connection;
++import java.sql.ResultSet;
++/**
++ *
++ * @author anjan
++ */
++public class CrudUtil {
++    private static PreparedStatement getPreparedStatement(String sql, Object... args) throws Exception{
++        Connection connection = DBConnection.getInstance().getConnection();
++        PreparedStatement statement = connection.prepareStatement(sql);
++        for(int i = 0; i < args.length; i++){
++            statement.setObject(i+ 1, args[i]);
++        }
++        return statement;
++    }
++    
++    public static boolean executeUpdate(String sql, Object... args) throws Exception{
++        PreparedStatement preparedStatement = getPreparedStatement(sql, args);
++        return preparedStatement.executeUpdate() > 0;
++    }
++    
++    public static ResultSet executeQuery(String sql, Object... args) throws Exception{
++        PreparedStatement preparedStatement = getPreparedStatement(sql, args);
++        return preparedStatement.executeQuery();
++    }
++}
+Index: course-registration-system-main/src/edu/ijse/layered/controller/StudentController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/course-registration-system-main/src/edu/ijse/layered/controller/StudentController.java b/course-registration-system-main/src/edu/ijse/layered/controller/StudentController.java
+new file mode 100644
+--- /dev/null	(date 1740647571061)
++++ b/course-registration-system-main/src/edu/ijse/layered/controller/StudentController.java	(date 1740647571061)
+@@ -0,0 +1,53 @@
++package edu.ijse.layered.controller;
++
++import edu.ijse.layered.dto.StudentDTO;
++import edu.ijse.layered.service.StudentService;
++import org.springframework.beans.factory.annotation.Autowired;
++import org.springframework.http.HttpStatus;
++import org.springframework.http.ResponseEntity;
++import org.springframework.web.bind.annotation.*;
++
++import java.util.List;
++
++@RestController
++@RequestMapping("/api/students")
++public class StudentController {
++
++    @Autowired
++    private StudentService studentService;
++
++    // Create a new student
++    @PostMapping
++    public ResponseEntity<StudentDTO> createStudent(@RequestBody StudentDTO studentDTO) {
++        StudentDTO createdStudent = studentService.saveStudent(studentDTO);
++        return new ResponseEntity<>(createdStudent, HttpStatus.CREATED);
++    }
++
++    // Retrieve all students
++    @GetMapping
++    public ResponseEntity<List<StudentDTO>> getAllStudents() {
++        List<StudentDTO> students = studentService.getAllStudents();
++        return new ResponseEntity<>(students, HttpStatus.OK);
++    }
++
++    // Retrieve a student by ID
++    @GetMapping("/{id}")
++    public ResponseEntity<StudentDTO> getStudentById(@PathVariable String id) {
++        StudentDTO student = studentService.getStudentById(id);
++        return new ResponseEntity<>(student, HttpStatus.OK);
++    }
++
++    // Update an existing student
++    @PutMapping("/{id}")
++    public ResponseEntity<StudentDTO> updateStudent(@PathVariable String id, @RequestBody StudentDTO studentDTO) {
++        StudentDTO updatedStudent = studentService.updateStudent(id, studentDTO);
++        return new ResponseEntity<>(updatedStudent, HttpStatus.OK);
++    }
++
++    // Delete a student by ID
++    @DeleteMapping("/{id}")
++    public ResponseEntity<Void> deleteStudent(@PathVariable String id) {
++        studentService.deleteStudentById(id);
++        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
++    }
++}
+\ No newline at end of file
+Index: course-registration-system-main/src/edu/ijse/layered/db/DBConnection.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/course-registration-system-main/src/edu/ijse/layered/db/DBConnection.java b/course-registration-system-main/src/edu/ijse/layered/db/DBConnection.java
+new file mode 100644
+--- /dev/null	(date 1740505748926)
++++ b/course-registration-system-main/src/edu/ijse/layered/db/DBConnection.java	(date 1740505748926)
+@@ -0,0 +1,34 @@
++/*
++ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
++ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
++ */
++package edu.ijse.layered.db;
++
++import java.sql.Connection;
++import java.sql.DriverManager;
++import java.sql.SQLException;
++
++/**
++ *
++ * @author anjan
++ */
++public class DBConnection {
++    private static DBConnection dBConnection;
++    private Connection connection;
++
++    private DBConnection() throws ClassNotFoundException, SQLException{
++        Class.forName("com.mysql.cj.jdbc.Driver");
++        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/supermarket", "root","hasandi05H_");
++    }
++    
++    public static DBConnection getInstance() throws ClassNotFoundException, SQLException{
++        if(dBConnection == null){
++            dBConnection = new DBConnection();
++        }
++        return dBConnection;
++    }
++    
++    public Connection getConnection(){
++        return connection;
++    }
++}
