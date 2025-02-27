@@ -1,0 +1,227 @@
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.*;
+
+public class StudentViewForm extends JFrame {
+    private JTextField txtStudentId, txtStudentName, txtEmail, txtContact, txtDob;
+    private JButton btnSave, btnUpdate, btnDelete;
+    private JTable tblStudents;
+    private DefaultTableModel tableModel;
+
+    // Database Credentials
+    private static final String URL = "jdbc:mysql://localhost:3306/course_registration";
+    private static final String USER = "root";  // Change as needed
+    private static final String PASSWORD = "hasandi05H_"; // Change as needed
+
+    public StudentViewForm() {
+        setTitle("Student Registration Form");
+        setSize(700, 450);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setLayout(new BorderLayout());
+
+        // **Header Label**
+        JLabel lblHeader = new JLabel("Student Registration", SwingConstants.CENTER);
+        lblHeader.setFont(new Font("Segoe UI", Font.BOLD, 24));
+        add(lblHeader, BorderLayout.NORTH);
+
+        // **Form Panel**
+        JPanel panelForm = new JPanel(new GridLayout(5, 2, 10, 10));
+        panelForm.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+        panelForm.add(new JLabel("Student ID:"));
+        txtStudentId = new JTextField();
+        panelForm.add(txtStudentId);
+
+        panelForm.add(new JLabel("Name:"));
+        txtStudentName = new JTextField();
+        panelForm.add(txtStudentName);
+
+        panelForm.add(new JLabel("Email:"));
+        txtEmail = new JTextField();
+        panelForm.add(txtEmail);
+
+        panelForm.add(new JLabel("Contact No:"));
+        txtContact = new JTextField();
+        panelForm.add(txtContact);
+
+        panelForm.add(new JLabel("Date of Birth:"));
+        txtDob = new JTextField();
+        panelForm.add(txtDob);
+
+        add(panelForm, BorderLayout.CENTER);
+
+        // **Buttons Panel**
+        JPanel panelButtons = new JPanel();
+        btnSave = new JButton("Save");
+        btnUpdate = new JButton("Update");
+        btnDelete = new JButton("Delete");
+
+        panelButtons.add(btnSave);
+        panelButtons.add(btnUpdate);
+        panelButtons.add(btnDelete);
+        add(panelButtons, BorderLayout.SOUTH);
+
+        // **Table Panel**
+        String[] columnNames = {"Student ID", "Name", "Email", "Contact No", "DOB"};
+        tableModel = new DefaultTableModel(columnNames, 0);
+        tblStudents = new JTable(tableModel);
+        JScrollPane scrollPane = new JScrollPane(tblStudents);
+        add(scrollPane, BorderLayout.EAST);
+
+        // **Fetch Students on Load**
+        fetchStudents();
+
+        // **Button Actions**
+        btnSave.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                addStudent();
+            }
+        });
+
+        btnUpdate.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                updateStudent();
+            }
+        });
+
+        btnDelete.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                deleteStudent();
+            }
+        });
+    }
+
+    // **Fetch Students from Database**
+    private void fetchStudents() {
+        tableModel.setRowCount(0);  // Clear existing rows
+
+        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery("SELECT * FROM student")) {
+
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                String email = rs.getString("email");
+                String contact = rs.getString("contact");
+                String dob = rs.getString("dob");
+
+                tableModel.addRow(new Object[]{id, name, email, contact, dob});
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error loading students from database!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    // **Add Student to Database**
+    private void addStudent() {
+        String studentId = txtStudentId.getText();
+        String name = txtStudentName.getText();
+        String email = txtEmail.getText();
+        String contact = txtContact.getText();
+        String dob = txtDob.getText();
+
+        if (!studentId.isEmpty() && !name.isEmpty()) {
+            try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+                 PreparedStatement stmt = conn.prepareStatement("INSERT INTO student (id, name, email, contact, dob) VALUES (?, ?, ?, ?, ?)")) {
+
+                stmt.setInt(1, Integer.parseInt(studentId));
+                stmt.setString(2, name);
+                stmt.setString(3, email);
+                stmt.setString(4, contact);
+                stmt.setString(5, dob);
+
+                int rowsInserted = stmt.executeUpdate();
+                if (rowsInserted > 0) {
+                    JOptionPane.showMessageDialog(this, "Student added successfully!");
+                    fetchStudents();
+                    clearFields();
+                }
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(this, "Error adding student!", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Student ID and Name are required!", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+    }
+
+    // **Update Selected Student**
+    private void updateStudent() {
+        int selectedRow = tblStudents.getSelectedRow();
+        if (selectedRow != -1) {
+            try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+                 PreparedStatement stmt = conn.prepareStatement("UPDATE student SET name=?, email=?, contact=?, dob=? WHERE id=?")) {
+
+                stmt.setString(1, txtStudentName.getText());
+                stmt.setString(2, txtEmail.getText());
+                stmt.setString(3, txtContact.getText());
+                stmt.setString(4, txtDob.getText());
+                stmt.setInt(5, Integer.parseInt(txtStudentId.getText()));
+
+                int rowsUpdated = stmt.executeUpdate();
+                if (rowsUpdated > 0) {
+                    JOptionPane.showMessageDialog(this, "Student updated successfully!");
+                    fetchStudents();
+                    clearFields();
+                }
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(this, "Error updating student!", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Please select a student to update!", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+    }
+
+    // **Delete Selected Student**
+    private void deleteStudent() {
+        int selectedRow = tblStudents.getSelectedRow();
+        if (selectedRow != -1) {
+            int confirm = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete this student?", "Confirm", JOptionPane.YES_NO_OPTION);
+            if (confirm == JOptionPane.YES_OPTION) {
+                try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+                     PreparedStatement stmt = conn.prepareStatement("DELETE FROM student WHERE id=?")) {
+
+                    stmt.setInt(1, Integer.parseInt(txtStudentId.getText()));
+                    int rowsDeleted = stmt.executeUpdate();
+                    if (rowsDeleted > 0) {
+                        JOptionPane.showMessageDialog(this, "Student deleted successfully!");
+                        fetchStudents();
+                        clearFields();
+                    }
+
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    JOptionPane.showMessageDialog(this, "Error deleting student!", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Please select a student to delete!", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+    }
+
+    // **Clear Input Fields**
+    private void clearFields() {
+        txtStudentId.setText("");
+        txtStudentName.setText("");
+        txtEmail.setText("");
+        txtContact.setText("");
+        txtDob.setText("");
+    }
+
+    // **Main Method to Run the Form**
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> new StudentViewForm().setVisible(true));
+    }
+}
